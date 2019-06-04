@@ -1,0 +1,18 @@
+Input: "abcabcbb"
+Output: 3 
+
+
+public int subString(String s){
+  int n=s.length();
+  int ans=0;
+  HashSet<String> hash =new HashSet<>();
+  int i=0,j=0;
+  while(i<n && j<n){
+    if(!hash.contains(j){
+      hash.add(s.charAt(j++);
+      ans+=(ans,j-i);
+     }else{
+     hash.remove(i++);
+    }
+  return ans;
+ }
