@@ -1,0 +1,38 @@
+public List<List<Integer>> 3sum(int [] nums){
+Array.sort(nums);
+List<List<Integer>> result = new ArrayList<>();
+for(int i=0;i<nums.length;i++){
+int j=i+1,k=nums.length-1;
+while(i>0 && nums[i]==nums[i+1]){
+  continue;
+}
+while(j<k){
+  if(k<nums.length-1 && nums[k]==nums[k+1]){
+    k--;
+    continue;
+  }
+   if(nums[i]+nums[j]+nums[k]>0){
+                        k--;
+                    }else if(nums[i]+nums[j]+nums[k]<0){
+                        j++;
+
+                    }else{
+                    Arraylist<integer> l =new ArrayList<>();
+                        l.add(nums[i]);
+                        l.add(nums[j]);
+                        l.add(nums[k]);
+                        result.add(l);
+                        j++;
+                        k--;
+                    }
+                }
+           }
+        return result;
+    }
+}
+
+
+
+
+  
+ 
