@@ -1,0 +1,15 @@
+public ListNode mergeList(ListNode[] lists){
+PriorityQueue<Integer> minheap = new PriorityQueue<>();
+       for(ListNode i:lists){
+          while(i!=null){
+            i=i.next;
+            }
+        }
+ListNode final =new ListNode(-1);
+ListNode i=final;
+while(!minheap isEmpty()){
+  i.next=new ListNode(minheap.remove());
+  i=i.next;
+ }
+ return final.next;
+}
