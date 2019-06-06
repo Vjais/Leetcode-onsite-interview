@@ -1,0 +1,19 @@
+["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+Output: 2
+Explanation: "testemail@leetcode.com" and "testemail@lee.tcode.com" actually receive mails
+
+public int numUniqueEmails(String[] emails) {
+Set<String> set = new HashSet<>();
+for(email :emails){
+ int myString=email.indexOf('@');
+ String local=email.subString(0,myString);
+ String domain=email.substring(myString);
+ if(local.contains("+"){
+  local=local.substring(0,local.indexOf("+");
+  }
+  local = local.replaceAll("\\.", "");
+            set.add(local + rest);
+ }
+ return set.size();
+ }
+ 
