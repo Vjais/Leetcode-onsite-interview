@@ -4,6 +4,8 @@ Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
 
 
 l1.end <= l2.start ->merge
+
+
 public class Interval{
  int start,
  int end,
@@ -16,6 +18,28 @@ public List<Interval> mergeInterval(List<Interval> interval){
   //
   List<Interval> RESULT = new ArrayList<>();
   if(interval.size() == 0) return result ;
-  for(int i=0;i<interval.length ;i++){
-   if(
+  //sort intervals
+  Collections.sort(interval,(int[] a,int [] b-> (a[0]-b[0]);
+  //
+  Interval curr =intervals.get(0);
+  for(Interval i:interval){
+   if(curr.end >= i.start){
+    curr.end=Math.max(curr.end,i.end);
+    }else{
+    result.add(curr);
+     cur=i;
+     }
+     }
+     return result;
+   }
+  
+  
+  
+  
+  
+  
+ 
+
+we merge them by updating the end of the previous interval if it is less than the end of the current interval.
+
   
