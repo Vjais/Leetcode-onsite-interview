@@ -1,0 +1,14 @@
+Input: 123
+Output: 321
+
+public int reverse(int n){
+Long reverse=0;
+while(x!=0){
+  reverse=reverse*10+n % 10;
+  n=n/10;
+}
+if(reverse<Interger.MIN_VALUE || reverse>Integer.MAX_VALUE){ return ;
+}
+return reverse.intValue();
+}
+
