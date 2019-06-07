@@ -1,0 +1,43 @@
+ 1
+   / \
+  2   3
+     / \
+    4   5
+
+as "[1,2,3,null,null,4,5]"
+public class operation1{
+  public String Serialize(TreeNode root){
+    StringBuffer s = new StringBuffer();
+    helperSerialize(root,s);
+    return s.toString().substring(0,s.length-1);
+  
+  }
+}
+public void helperSerialize(TreeNode current,StringBuffer s){
+ if(current ==null){
+  s.append(null," ");
+  return;
+ }
+ s.append(current.val).append(",");
+ helperSerialize(current.left,s);
+ helperSerialize(current.right,s);
+ }
+ public TreeNode deserialize(String data){
+  String[]nodes = data.split(",");
+   List<String> list = new LinkedList<String>(Arrays.asList(nodes));   
+   return helperDeserialize(list);
+  }
+ public TreeNode helperDeserialize(List<String>){
+    if(s.get(0)==null){
+      s.remove(0);
+      return null;
+      
+     }
+  
+    TreeNode root = new TreeNode(Integer.valueOf(s.get(0)));
+    s.remove(0);
+    root.left = dfsPreDeserializer(s);
+    root.right = dfsPreDeserializer(s);    
+    return root;
+  }
+}
