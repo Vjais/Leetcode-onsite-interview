@@ -1,0 +1,100 @@
+Q1. Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+Note: A leaf is a node with no children.
+Example:
+Given the below binary tree and sum = 22,
+
+      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \      \
+7    2      1
+return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+
+public boolean pathSum(int sum,TreeNode root){
+if(root==null) return false;
+Sum -=root.val;
+if(root.left==null || root.right ==null) return sum;
+return pathSum(root.left,sum)|| pathSum(root.right,sum);
+}
+
+
+Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
+Given the below binary tree and sum = 22.(return all path)
+
+
+      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \    / \
+7    2  5   1
+Return:
+
+[
+   [5,4,11,2],
+   [5,8,4,5]
+]
+
+
+public List<List<Integer> pathSum(int sum,TreeNode root){
+  if(root ==null) return ;
+  List<List<Integer>result = new ArrayList<>();
+  pathsum(root,sum,result,new ArrayList<Integer>);
+  return result;
+  }
+public void pathsum(TreeNode root,int sum,List<Integer> current,List<List<Integer>result){
+  current.add(root.val);
+  if(root.val==sum && root.left ==null && root.right==0){
+  result.add(current);
+  return; 
+  }
+pathsum(root.left,sum-root.val,new new ArrayList<Integer>(current),result);
+pathsum(root.right,sum-root.val,new new ArrayList<Integer>(current),result);
+}
+
+
+
+Path sum-3
+class Solution {
+    public int pathSum(TreeNode root, int sum) {
+        if(root == null)
+            return 0;
+        return paths(root,sum) + pathSum(root.left,sum) + pathSum(root.right,sum);
+        
+    }
+    public int paths(TreeNode root,int sum){
+       int result=0;
+       if(root==null)return result;
+       if(root.val==sum) result++;
+       result +=paths(root.left,sum-root.val);
+       result +=paths(root.right,sum-root.val);   
+       return result;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
