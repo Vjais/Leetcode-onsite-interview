@@ -1,0 +1,33 @@
+word1 = "horse", word2 = "ros"
+Output: 3
+Explanation: 
+horse -> rorse (replace 'h' with 'r')
+rorse -> rose (remove 'r')
+rose -> ros (remove 'e')
+
+
+public int editDistance(String s1,String s2){
+int n=s1.length();
+int m = s2.length;
+int[][]edit = new [m+1][n+1];
+if(n*m==0)return n+m;
+//boundaries
+for(i=0;i<m+1;i++){
+  edit[i][0]=i;
+}
+for(int j=0;j<n+1;j++{
+ edit[0][j]=j;
+ }
+for(i=0;i<m+1;i++){
+  for(int j=0;j<n+1;j++){
+    int left=edit[i-1][j]+1;
+    int down=edit[i][j-1]+1
+    int left_down=edit[i-1][j-1];
+    if(s1.charAt(i) != s2.charAt(j)){
+      int left_down=+1;
+      d[i][j] = Math.min(left, Math.min(down, left_down));
+            }
+        }
+        return d[n][m]; 
+    }
+}
