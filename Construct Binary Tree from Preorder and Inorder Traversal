@@ -1,0 +1,35 @@
+Construct Binary Tree from Preorder and Inorder Traversal
+preorder = [3,9,20,15,7]
+inorder  = [9,3,15,20,7]
+Return the following binary tree:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+
+public TreeNode built(int[] preorder,int[] inorder){
+  Map<Integer,Integer> map = new HashMap<I>();
+  for(int i=0;i<inorder.length;i++);
+    map.put(inoder[i],i);
+  }
+  TreeNode root = buildTree(preorder,0,preorder.length - 1, inorder, 0, inorder.length - 1, map);
+  return root;
+ }
+ public TreeNode buildTree(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd, Map<Integer, Integer> map){
+  TreeNode root = new TreeNode(preoder[preStart]);
+  int inroot =map.get(root.val);
+  
+  root.left=(preorder,preStart+1,preStart+numsLeft
+  int numsLeft = inRoot - inStart;
+
+
+
+
+    root.left = buildTree(preorder, preStart + 1, preStart + numsLeft, inorder, inStart, inRoot - 1, inMap);
+    root.right = buildTree(preorder, preStart + numsLeft + 1, preEnd, inorder, inRoot + 1, inEnd, inMap);
+    
+    return root;
+}
