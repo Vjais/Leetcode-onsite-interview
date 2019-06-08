@@ -1,0 +1,22 @@
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer>list=new ArrayList<>();
+        recurse(root,list);
+        return list;        
+        
+    }
+    public void recurse(TreeNode root,List<Integer>list){
+        if(root!=null){
+            if(root.left !=null){
+                recurse(root.left,list);
+            }
+            list.add(root.val);
+            if(root.right!=null){
+                recurse(root.right,list);
+            }
+                
+        }
+    }
+}
