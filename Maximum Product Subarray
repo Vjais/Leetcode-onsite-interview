@@ -1,0 +1,23 @@
+public int maxProduct(int[] A)
+	{
+		int[] maxProduct = new int[A.length];
+		int[] minProduct = new int[A.length];
+		int result = maxProduct[0] = minProduct[0] = A[0];
+
+		for(int i = 1; i < A.length; i++)
+		{
+			if(A[i] > 0)
+			{
+				maxProduct[i] = Math.max(A[i], maxProduct[i - 1] * A[i]);
+				minProduct[i] = Math.min(A[i], minProduct[i - 1] * A[i]);
+			}
+			else
+			{
+				maxProduct[i] = Math.max(A[i], minProduct[i - 1] * A[i]);
+				minProduct[i] = Math.min(A[i], maxProduct[i - 1] * A[i]);
+			}
+			result = Math.max(result, maxProduct[i]);
+		}
+		return result;
+	}
+}
